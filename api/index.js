@@ -1,8 +1,14 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const cors = require('cors');
 
 const app = express();
+app.use(cors({
+  origin: '*',                // Allow all origins
+  methods: ['GET', 'POST'],   // Allow GET and POST methods
+  allowedHeaders: ['Content-Type', 'Authorization'] // Allow Content-Type and Authorization headers
+})); // Enable CORS for all routes
 const PORT = process.env.PORT || 3000;
 
 // Load quotes from JSON file
