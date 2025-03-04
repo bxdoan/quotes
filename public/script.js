@@ -1,5 +1,7 @@
 // Configuration
-const API_URL = 'https://quotes-blond.vercel.app/api'; // Replace with your Vercel API URL
+const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+    ? 'http://localhost:3000/api' // Empty string will use relative URLs 
+    : 'https://quotes-blond.vercel.app/api'; // Use Vercel URL in production
 
 // DOM elements
 const quoteElement = document.getElementById('quote');
@@ -19,9 +21,18 @@ async function fetchQuote(language) {
     try {
         quoteElement.textContent = 'Loading...';
         authorElement.textContent = '';
-
-        const response = await fetch(`${API_URL}/quote?lang=${language}`);
         
+        // Remove any existing pinyin elements
+        const existingQuotePinyin = document.getElementById('quote-pinyin');
+        if (existingQuotePinyin) existingQuotePinyin.remove();
+        
+        const existingAuthorPinyin = document.getElementById('author-pinyin');
+        if (existingAuthorPinyin) existingAuthorPinyin.remove();
+
+        // Construct API URL (relative or absolute based on API_URL setting)
+        const apiEndpoint = `${API_URL}/quote?lang=${language}`;
+        console.log(apiEndpoint);
+        const response = await fetch(apiEndpoint);
         if (!response.ok) {
             const errorData = await response.json();
             throw new Error(errorData.error || 'Error fetching quote');
@@ -32,6 +43,27 @@ async function fetchQuote(language) {
         // Update the UI
         quoteElement.textContent = data.quote;
         authorElement.textContent = `— ${data.author} —`;
+        
+        // Add pinyin if available (for Chinese languages)
+        if (data.pinyin) {
+            // Create and add quote pinyin
+            const quotePinyinElement = document.createElement('div');
+            quotePinyinElement.id = 'quote-pinyin';
+            quotePinyinElement.className = 'pinyin-text';
+            quotePinyinElement.textContent = data.pinyin.quote;
+            quoteElement.insertAdjacentElement('afterend', quotePinyinElement);
+            
+            // Create and add author pinyin
+            const authorPinyinElement = document.createElement('div');
+            authorPinyinElement.id = 'author-pinyin';
+            authorPinyinElement.className = 'pinyin-text';
+            authorPinyinElement.textContent = `— ${data.pinyin.author} —`;
+            authorElement.insertAdjacentElement('afterend', authorPinyinElement);
+            
+            // Apply fade-in animation to pinyin elements
+            quotePinyinElement.style.animation = 'fadeIn 0.5s ease-in-out';
+            authorPinyinElement.style.animation = 'fadeIn 0.5s ease-in-out';
+        }
         
         // Save current quote
         currentQuote = data.quote;
@@ -57,14 +89,31 @@ async function fetchQuote(language) {
 
 // Share quote on Twitter
 function shareOnTwitter() {
-    const text = `"${quoteElement.textContent}" ${authorElement.textContent}`;
+    let text = `"${quoteElement.textContent}" ${authorElement.textContent}`;
+    
+    // Include pinyin if available
+    const quotePinyin = document.getElementById('quote-pinyin');
+    const authorPinyin = document.getElementById('author-pinyin');
+    
+    if (quotePinyin && authorPinyin && currentLanguage.startsWith('cn')) {
+        text += `\n(Pinyin: "${quotePinyin.textContent}" ${authorPinyin.textContent})`;
+    }
+    
     const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
     window.open(tweetUrl, '_blank');
 }
 
 // Copy quote to clipboard
 function copyToClipboard() {
-    const text = `"${quoteElement.textContent}" ${authorElement.textContent}`;
+    let text = `"${quoteElement.textContent}" ${authorElement.textContent}`;
+    
+    // Include pinyin if available
+    const quotePinyin = document.getElementById('quote-pinyin');
+    const authorPinyin = document.getElementById('author-pinyin');
+    
+    if (quotePinyin && authorPinyin && currentLanguage.startsWith('cn')) {
+        text += `\n(Pinyin: "${quotePinyin.textContent}" ${authorPinyin.textContent})`;
+    }
     
     // Use the Clipboard API if available
     if (navigator.clipboard) {
