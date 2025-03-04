@@ -31,7 +31,7 @@ async function fetchQuote(language) {
         
         // Update the UI
         quoteElement.textContent = data.quote;
-        authorElement.textContent = `— ${data.author}`;
+        authorElement.textContent = `— ${data.author} —`;
         
         // Save current quote
         currentQuote = data.quote;
