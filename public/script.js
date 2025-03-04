@@ -1,5 +1,5 @@
 // Configuration
-const API_URL = ''; // Sử dụng đường dẫn tương đối để hoạt động cả với localhost và Vercel
+const API_URL = 'https://quotes-blond.vercel.app';
 
 // DOM elements
 const quoteElement = document.getElementById('quote');
