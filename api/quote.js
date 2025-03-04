@@ -2,6 +2,16 @@ const fs = require('fs');
 const path = require('path');
 const pinyin = require('pinyin');
 
+try {
+  pinyin = require('pinyin');
+  console.log('Pinyin version:', require('pinyin/package.json').version);
+  console.log('STYLE_TONE:', pinyin.STYLE_TONE);
+  const test = pinyin('你好');
+  console.log(test);
+} catch (e) {
+  console.error('Error importing pinyin module:', e);
+}
+
 // Path to the JSON file containing quotes
 const quotesFilePath = path.join(process.cwd(), 'quotes.json');
 
@@ -38,37 +48,16 @@ module.exports = async (req, res) => {
       });
     }
     
-    // Lấy trích dẫn ngẫu nhiên
+    // get random quote
     const randomIndex = Math.floor(Math.random() * quotes[lang].length);
     const randomQuote = quotes[lang][randomIndex];
     
-    // Tạo response object
+    // create response object
     const response = {
       language: lang,
       quote: randomQuote.quote, 
       author: randomQuote.author
     };
-    
-    // If language starts with "cn", add pinyin field
-    if (lang.startsWith('cn')) {
-      // Convert quote to pinyin
-      const quoteInPinyin = pinyin(randomQuote.quote, {
-        style: pinyin.STYLE_TONE, // Include tone marks
-        heteronym: false          // Do not include multiple pronunciations
-      }).map(p => p.join(' ')).join(' ');
-      
-      // Convert author name to pinyin (if author name is Chinese)
-      const authorInPinyin = pinyin(randomQuote.author, {
-        style: pinyin.STYLE_TONE,
-        heteronym: false
-      }).map(p => p.join(' ')).join(' ');
-      
-      // Add pinyin to response
-      response.pinyin = {
-        quote: quoteInPinyin,
-        author: authorInPinyin
-      };
-    }
     
     // Return the result
     return res.status(200).json(response);
