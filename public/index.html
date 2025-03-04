@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="quote-container">
+            <div class="language-selector">
+                <button class="lang-btn active" data-lang="en">English</button>
+                <button class="lang-btn" data-lang="vi">Tiếng Việt</button>
+                <button class="lang-btn" data-lang="cn_zh">简体中文</button>
+                <button class="lang-btn" data-lang="cn_tw">繁體中文</button>
+            </div>
+            
+            <div class="quote-content">
+                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                <div class="quote-text" id="quote">Loading...</div>
+                <div class="quote-author" id="author"></div>
+            </div>
+            
+            <div class="quote-actions">
+                <button id="new-quote" class="btn">New Quote</button>
+                <button id="share-twitter" class="btn social-btn"><i class="fab fa-twitter"></i></button>
+                <button id="copy-quote" class="btn social-btn"><i class="far fa-copy"></i></button>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Created with <i class="fas fa-heart"></i> | <a href="https://github.com/bxdoan/quotes" target="_blank">GitHub</a></p>
+        </div>
+    </div>
+    <div id="notification">Copied to clipboard!</div>
+    <script src="script.js"></script>
+</body>
+</html> 
