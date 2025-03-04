@@ -1,33 +1,33 @@
 const fs = require('fs');
 const path = require('path');
 
-// Đường dẫn đến tệp JSON chứa trích dẫn
+// Path to the JSON file containing quotes
 const quotesFilePath = path.join(process.cwd(), 'quotes.json');
 
-// Hàm xử lý serverless
+// Serverless function handler
 module.exports = async (req, res) => {
-  // Bật CORS
+  // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   
-  // Xử lý OPTIONS request (pre-flight)
+  // Handle OPTIONS request (pre-flight)
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
   
-  // Chỉ xử lý GET requests
+  // Only process GET requests
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
   try {
-    // Đọc và phân tích tệp quotes.json để lấy các ngôn ngữ có sẵn
+    // Read and parse quotes.json to get available languages
     const data = fs.readFileSync(quotesFilePath, 'utf8');
     const quotes = JSON.parse(data);
     const availableLanguages = Object.keys(quotes);
     
-    // Trả về thông tin API
+    // Return API information
     return res.status(200).json({
       message: 'Welcome to the Quotes API',
       endpoints: {
