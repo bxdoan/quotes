@@ -1,5 +1,5 @@
 // Configuration
-const API_URL = 'https://quotes-blond.vercel.app/api';
+const API_URL = 'https://quotes-blond.vercel.app/api'; // Replace with your Vercel API URL
 
 // DOM elements
 const quoteElement = document.getElementById('quote');

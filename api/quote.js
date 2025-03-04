@@ -22,28 +22,34 @@ module.exports = async (req, res) => {
   }
 
   try {
-    // Đọc và phân tích tệp quotes.json để lấy các ngôn ngữ có sẵn
+    // Đọc và phân tích tệp quotes.json
     const data = fs.readFileSync(quotesFilePath, 'utf8');
     const quotes = JSON.parse(data);
-    const availableLanguages = Object.keys(quotes);
     
-    // Trả về thông tin API
+    // Lấy tham số ngôn ngữ từ query string
+    const lang = req.query.lang || 'en';
+    
+    // Kiểm tra ngôn ngữ có tồn tại không
+    if (!quotes[lang] || !Array.isArray(quotes[lang]) || quotes[lang].length === 0) {
+      return res.status(404).json({
+        error: `No quotes available for language: ${lang}`,
+        availableLanguages: Object.keys(quotes)
+      });
+    }
+    
+    // Lấy trích dẫn ngẫu nhiên
+    const randomIndex = Math.floor(Math.random() * quotes[lang].length);
+    const randomQuote = quotes[lang][randomIndex];
+    
+    // Trả về kết quả
     return res.status(200).json({
-      message: 'Welcome to the Quotes API',
-      endpoints: {
-        quote: '/api/quote?lang=<language>'
-      },
-      availableLanguages
+      language: lang,
+      quote: randomQuote.quote, 
+      author: randomQuote.author
     });
     
   } catch (error) {
     console.error('Error loading quotes:', error);
-    return res.status(500).json({ 
-      message: 'Welcome to the Quotes API',
-      endpoints: {
-        quote: '/api/quote?lang=<language>'
-      },
-      error: 'Failed to load available languages'
-    });
+    return res.status(500).json({ error: 'Failed to load quotes' });
   }
 };

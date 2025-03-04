@@ -3,11 +3,12 @@
   "version": 2,
   "public": true,
   "builds": [
-    { "src": "api/index.js", "use": "@vercel/node" },
+    { "src": "api/*.js", "use": "@vercel/node" },
     { "src": "public/**", "use": "@vercel/static" },
     { "src": "quotes.json", "use": "@vercel/static" }
   ],
   "routes": [
+    { "src": "/api/quote", "dest": "/api/quote.js" },
     { "src": "/api", "dest": "/api/index.js" },
     { "src": "/(.*)", "dest": "/public/$1" }
   ]
