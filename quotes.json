@@ -391,15 +391,15 @@
   ],
   "vi": [
     {
-      "quote": "Trời đất cho ta một cái tài\nGiắt lưng dành để tháng ngày chơi\nDở duyên với rượu khôn từ chén\nTrót nợ cùng thơ phải chuốt lời\nCờ sẵn bàn son xe ngựa đó\nĐàn còn phím trúc tính tình đây\nAi say, ai tỉnh, ai thua được\nTa mặc ta mà ai mặc ai!",
+      "quote": "Trời đất cho ta một cái tài, Giắt lưng dành để tháng ngày chơi. Dở duyên với rượu khôn từ chén, Trót nợ cùng thơ phải chuốt lời. Cờ sẵn bàn son xe ngựa đó, Đàn còn phím trúc tính tình đây. Ai say, ai tỉnh, ai thua được, Ta mặc ta mà ai mặc ai!",
       "author": "Cầm kỳ thi tửu - Nguyễn Công Trứ"
     },
     {
-      "quote": "Khi chén rượu, khi cuộc cờ\nKhi xem hoa nở, lúc chờ trăng lên",
+      "quote": "Khi chén rượu, khi cuộc cờ. Khi xem hoa nở, lúc chờ trăng lên",
       "author": "Truyện Kiều - Nguyễn Du"
     },
     {
-      "quote": "Nhân sinh chông gai bao lần khổ, tha thứ cho người mở rộng tâm ta\nThế nhân bất công đối xử tệ, Bình thản mỉm cười ấy hiền nhân",
+      "quote": "Nhân sinh chông gai bao lần khổ, tha thứ cho người mở rộng tâm ta. Thế nhân bất công đối xử tệ, Bình thản mỉm cười ấy hiền nhân",
       "author": "Sưu tầm"
     },
     {
@@ -407,7 +407,7 @@
       "author": "Tam Tự Kinh"
     },
     {
-      "quote": "Hữu tâm trồng hoa, hoa không nở\nVô tâm cấy liễu, liễu thành rừng",
+      "quote": "Hữu tâm trồng hoa, hoa không nở. Vô tâm cấy liễu, liễu thành rừng",
       "author": "Sưu tầm"
     },
     {
@@ -419,11 +419,11 @@
       "author": "Trang Tử"
     },
     {
-      "quote": "Nếu hoa nở rộ thì bướm sẽ tự tìm đến\nNếu người xuất sắc, Trời sẽ tự an bài",
+      "quote": "Nếu hoa nở rộ thì bướm sẽ tự tìm đến. Nếu người xuất sắc, Trời sẽ tự an bài",
       "author": "Sưu tầm"
     },
     {
-      "quote": "Đầu giường ánh trăng rọi,\nNgỡ mặt đất phủ sương.\nNgẩng đầu nhìn trăng sáng,\nCúi đầu nhớ cố hương.",
+      "quote": "Đầu giường ánh trăng rọi, Ngỡ mặt đất phủ sương. Ngẩng đầu nhìn trăng sáng, Cúi đầu nhớ cố hương.",
       "author": "Tĩnh Dạ Tứ - Lý Bạch"
     },
     {
@@ -437,7 +437,40 @@
     {
       "quote": "Hành trình vạn dặm bắt đầu từ một bước chân",
       "author": "Lão Tử"
+    },
+    {
+      "quote":"Nhân gian nặng nhất chữ tình,\nYêu thương ân oán giận hờn buông sao.\nNgẫm rồi lòng cứ nao nao,\nTrăm năm một thoáng buồn sao là buồn.",
+      "author":"Sưu tầm"
+    },
+    {
+      "quote":"Quá cảnh trần gian lạc bến tình,\nTình vui phơi phới buổi bình minh.\nThuyền lòng thả nổi không người lái,\nĐâu ngờ trôi dạt chốn điêu linh.",
+      "author":"Sưu tầm"
+    },
+    {
+      "quote":"Chiều ngang qua phố trút nỗi buồn,\nLy đầy ly cạn lại buồn hơn.\nAi biết trần gian là quán trọ,\nAi lắp cho đầy nỗi trống trơn.",
+      "author":"Sưu tầm"
+    },
+    {
+      "quote":"Quá cảnh nhân gian mượn áo người,\nMặc vào ngộ nhận áo là tôi,\nÁo cũ cơ hàn hay gấm lụa,\nHẳn mốt mai về trả lại thôi.",
+      "author":"Sưu tầm"
+    },
+    {
+      "quote":"Hữu duyên thiên lý lai tương hội,\nVô duyên đối diện bất tương thứcthức",
+      "author":"Sưu tầm"
+    },
+    {
+      "quote":"Người đời thường cho thần tiên hay,\nMà chuyện công danh lại vẫn say!\nXưa nay tướng soái nơi nào đấy,\nMột dải mồ hoang cỏ mọc đầy!",
+      "author":"Hồng Lâu Mộng - Tào Tuyết Cần"
+    },
+    {
+      "quote":"Giả bảo là chân, chân cũng giả,\nKhông làm ra có, có rồi không.",
+      "author":"Hồng Lâu Mộng - Tào Tuyết Cần"
+    },
+    {
+      "quote":"Lẵng đẵng trên đời khéo khổ công,\nTiệc tùng rốt cuộc chỉ là không,\nMuôn trò mừng tủi đều hư ảo,\nMột giấc xưa nay rõ viễn vông.",
+      "author":"Hồng Lâu Mộng - Tào Tuyết Cần"
     }
+    
   ],
   "cn_zh": [
     {
