@@ -95,7 +95,7 @@ function shareOnTwitter() {
     const quotePinyin = document.getElementById('quote-pinyin');
     const authorPinyin = document.getElementById('author-pinyin');
     
-    if (quotePinyin && authorPinyin && currentLanguage.startsWith('cn')) {
+    if (quotePinyin && authorPinyin && currentLanguage.startsWith('zh')) {
         text += `\n(Pinyin: "${quotePinyin.textContent}" ${authorPinyin.textContent})`;
     }
     
@@ -111,7 +111,7 @@ function copyToClipboard() {
     const quotePinyin = document.getElementById('quote-pinyin');
     const authorPinyin = document.getElementById('author-pinyin');
     
-    if (quotePinyin && authorPinyin && currentLanguage.startsWith('cn')) {
+    if (quotePinyin && authorPinyin && currentLanguage.startsWith('zh')) {
         text += `\n(Pinyin: "${quotePinyin.textContent}" ${authorPinyin.textContent})`;
     }
     
